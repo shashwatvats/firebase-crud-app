@@ -1,0 +1,21 @@
+<div style="margin-top:50px;">
+  <form #studentForm="ngForm" (ngSubmit)="onSubmit(studentForm)">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" name="name" #name="ngModel" [(ngModel)]="studentsService.selectedStudent.name" required>
+    </div>
+    <div class="form-group">
+      <label for="branch">Branch:</label>
+      <input type="text" class="form-control" id="branch" name="branch" #branch="ngModel" [(ngModel)]="studentsService.selectedStudent.branch" required>
+    </div> 
+    <div class="form-group">
+      <label for="roll_no">Roll Number:</label>
+      <input type="number" class="form-control" id="roll_no" name="roll_no" #roll_no="ngModel" [(ngModel)]="studentsService.selectedStudent.roll_no" required>
+    </div>
+    <div class="form-group">
+      <label for="perc">Percentage:</label>
+      <input type="number" class="form-control" id="percentage" name="percentage" #percentage="ngModel" [(ngModel)]="studentsService.selectedStudent.perc" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
