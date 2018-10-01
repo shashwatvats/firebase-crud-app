@@ -24,4 +24,14 @@ export class StudentsService {
     });
   }
 
+  updateEmployee(student : Students){
+    this.studentList.update(student.$key,
+      {
+        name: student.name,
+        branch: student.branch,
+        roll_no: student.roll_no,
+        percentage: student.percentage
+      });
+  }
+
 }

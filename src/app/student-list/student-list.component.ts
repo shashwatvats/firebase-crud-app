@@ -21,6 +21,8 @@ export class StudentListComponent implements OnInit {
       });
     });
   }
-  
+  onEdit(stu: Students) {
+    this.studentsService.selectedStudent =  stu;
+  }
 
 }

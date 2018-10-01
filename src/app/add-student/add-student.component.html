@@ -1,21 +1,27 @@
 <div style="margin-top:50px;">
   <form #studentForm="ngForm" (ngSubmit)="onSubmit(studentForm)">
+      <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="studentsService.selectedStudent.$key">
     <div class="form-group">
       <label for="name">Name:</label>
-      <input type="text" class="form-control" id="name" name="name" #name="ngModel" [(ngModel)]="studentsService.selectedStudent.name" required>
+      <input type="text" class="form-control"  id="name" name="name" #name="ngModel" [(ngModel)]="studentsService.selectedStudent.name" required>
+      <span class="help-block" *ngIf="!name.valid && name.touched">Enter a Valid Value!</span>
     </div>
     <div class="form-group">
       <label for="branch">Branch:</label>
       <input type="text" class="form-control" id="branch" name="branch" #branch="ngModel" [(ngModel)]="studentsService.selectedStudent.branch" required>
+      <span class="help-block" *ngIf="!branch.valid && branch.touched">Enter a Valid Value!</span>
     </div> 
     <div class="form-group">
       <label for="roll_no">Roll Number:</label>
       <input type="number" class="form-control" id="roll_no" name="roll_no" #roll_no="ngModel" [(ngModel)]="studentsService.selectedStudent.roll_no" required>
+      <span class="help-block" *ngIf="!roll_no.valid && roll_no.touched">Enter a Valid Value!</span>
     </div>
     <div class="form-group">
       <label for="perc">Percentage:</label>
       <input type="number" class="form-control" id="percentage" name="percentage" #percentage="ngModel" [(ngModel)]="studentsService.selectedStudent.perc" required>
+      <span class="help-block" *ngIf="!percentage.valid && percentage.touched">Enter a Valid Value!</span>
+      <p *ngIf="percentage.value>=80">Your Aggregate is Good!</p>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!studentForm.valid">Submit</button>
   </form>
 </div>
