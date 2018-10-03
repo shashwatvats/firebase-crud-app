@@ -33,5 +33,7 @@ export class StudentsService {
         percentage: student.percentage
       });
   }
-
+  deletestudent($key:string){
+    this.studentList.remove($key);
+  }
 }

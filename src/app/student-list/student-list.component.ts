@@ -4,7 +4,8 @@ import {Students} from '../shared/students.model';
 @Component({
   selector: 'app-student-list',
   templateUrl: './student-list.component.html',
-  styleUrls: ['./student-list.component.css']
+  styleUrls: ['./student-list.component.css'],
+  providers:  [StudentsService]
 })
 export class StudentListComponent implements OnInit {
   studentList : Students[];
@@ -23,6 +24,9 @@ export class StudentListComponent implements OnInit {
   }
   onEdit(stu: Students) {
     this.studentsService.selectedStudent =  stu;
+    console.log(stu);
   }
-
+  onDelete($key:string){
+    this.studentsService.deletestudent($key);
+  }
 }

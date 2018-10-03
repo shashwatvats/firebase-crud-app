@@ -19,18 +19,9 @@ export class AddStudentComponent implements OnInit {
   }
 
   onSubmit(studentForm : NgForm){
-    this.resetForm();
     this.studentsService.insertstudent(studentForm.value);
-  }
-  resetForm(studentForm?: NgForm) {
-    if (studentForm != null)
+    console.log(studentForm.form.value);
     studentForm.reset();
-    this.studentsService.selectedStudent = {
-      $key: null,
-      name: '',
-      branch: '',
-      roll_no: 0,
-      percentage: 0,
-    }
   }
+  
 }
