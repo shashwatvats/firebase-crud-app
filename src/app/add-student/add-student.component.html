@@ -18,7 +18,7 @@
     </div>
     <div class="form-group">
       <label for="perc">Percentage:</label>
-      <input type="number" class="form-control" id="percentage" name="percentage" #percentage="ngModel" [(ngModel)]="studentsService.selectedStudent.perc" required>
+      <input type="number" class="form-control" id="percentage" name="percentage" #percentage="ngModel" maxlength="2" [(ngModel)]="studentsService.selectedStudent.perc" required>
       <span class="help-block" *ngIf="!percentage.valid && percentage.touched">Enter a Valid Value!</span>
       <p *ngIf="percentage.value>=80">Your Aggregate is Good!</p>
     </div>

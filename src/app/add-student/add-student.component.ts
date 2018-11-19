@@ -20,7 +20,6 @@ export class AddStudentComponent implements OnInit {
 
   onSubmit(studentForm : NgForm){
     this.studentsService.insertstudent(studentForm.value);
-    console.log(studentForm.form.value);
     studentForm.reset();
   }
   

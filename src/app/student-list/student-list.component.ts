@@ -9,6 +9,7 @@ import {Students} from '../shared/students.model';
 })
 export class StudentListComponent implements OnInit {
   studentList : Students[];
+  delete_msg=false;
   constructor(private studentsService : StudentsService) { }
 
   ngOnInit() {
@@ -28,5 +29,10 @@ export class StudentListComponent implements OnInit {
   }
   onDelete($key:string){
     this.studentsService.deletestudent($key);
+    this.delete_msg=true;
+    setTimeout(()=>
+    {this.delete_msg=false;}
+    ,5000);
+    console.log(this.delete_msg);
   }
 }
